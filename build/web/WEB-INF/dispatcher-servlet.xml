@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd 
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+   
+
+    
+    <context:component-scan base-package="com.controllers"></context:component-scan>
+    <context:component-scan base-package="com.configuration"></context:component-scan>
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="login.htm">userController</prop>
+                <prop key="index.htm">homeController</prop>
+                <prop key="about.htm">homeController</prop>
+                <prop key="blog.htm">homeController</prop>
+                <prop key="checkout.htm">orderController</prop>
+                <prop key="submitOrder.htm">orderController</prop>
+                <prop key="search.htm">shopController</prop>
+                <prop key="contact.htm">homeController</prop>
+                <prop key="forgot.htm">userController</prop>
+                <prop key="logout.htm">userController</prop>
+                <prop key="login_process.htm">userController</prop>
+                <prop key="login_checkout.htm">userController</prop>
+                <prop key="loginCheckout.htm">userController</prop>
+                <prop key="register.htm">userController</prop>
+                <prop key="shop-details.htm">shopController</prop>
+                <prop key="shop.htm">shopController</prop>
+                <prop key="filterProducts.htm">shopController</prop>
+                <prop key="add-to-cart.htm">cartController</prop>
+                <prop key="cart.htm">cartController</prop>
+                <prop key="clear-cart.htm">cartController</prop>
+                <prop key="remove.htm">cartController</prop>
+                <prop key="revenueChart.htm">adminController</prop>
+                <prop key="faqs.htm">faqController</prop>
+                <prop key="updateFaq.htm">faqController</prop>
+                <prop key="faqupdateshow.htm">faqController</prop>
+                <prop key="faqdelete.htm">faqController</prop>
+                <prop key="updateReply.htm">faqController</prop>
+                <prop key="viewfaq.htm">faqController</prop>
+                <prop key="order_tracking.htm">orderController</prop>
+                <prop key="viewdetail.htm">orderController</prop>
+              
+                <!--admin -->
+                <prop key="admin.htm">adminController</prop>
+                <prop key="formfaqs.htm">faqController</prop>
+                <prop key="categories_tb.htm">categoryController</prop>
+                <prop key="formdelivery.htm">deliveryController</prop>
+                <prop key="formpayment.htm">paymentController</prop>
+                <prop key="formvoucher.htm">voucherController</prop>
+                <prop key="voucherdelete.htm">voucherController</prop>
+                <prop key="voucherupdateshow.htm">voucherController</prop>
+                <prop key="updateVoucher.htm">voucherController</prop>
+                <prop key="vouchers.htm">voucherController</prop>
+                <prop key="orders_tb.htm">orderController</prop>
+                <prop key="updateOrder.htm">orderController</prop>
+                <prop key="orderupdateshow.htm">orderController</prop>
+                <prop key="orderdelete.htm">orderController</prop>
+                <prop key="getOrderDetails.htm">orderController</prop>
+                <prop key="formuser.htm">userController</prop>
+                
+                <!--add-form -->
+                <prop key="categoryupdateshow.htm">categoryController</prop>
+                <prop key="updateCategory.htm">categoryController</prop>
+                <prop key="categorydelete.htm">categoryController</prop>
+                <prop key="categories_add.htm">categoryController</prop>
+            
+                <prop key="addfaqs.htm">faqController</prop>
+                <prop key="products_tb.htm">productController</prop>
+                <prop key="products_add.htm">productController</prop>
+                <prop key="productdelete.htm">productController</prop>
+                <prop key="productupdateshow.htm">productController</prop>
+                <prop key="updateProduct.htm">productController</prop>
+                <prop key="adddelivery.htm">deliveryController</prop>
+                <prop key="deliverydelete.htm">deliveryController</prop>
+                <prop key="deliveryupdateshow.htm">deliveryController</prop>
+                <prop key="updateDelivery.htm">deliveryController</prop>
+                <prop key="addvoucher.htm">voucherController</prop>
+                
+                <prop key="addpayment.htm">paymentController</prop>
+                <prop key="paymentupdateshow.htm">paymentController</prop>
+                <prop key="paymentdelete.htm">paymentController</prop>
+                <prop key="updatePayment.htm">paymentController</prop>
+                <prop key="adduser.htm">userController</prop>
+                <prop key="formuser.htm">userController</prop>
+                <prop key="userdelete.htm">userController</prop>
+                <prop key="userupdateshow.htm">userController</prop>
+                <prop key="updateUser.htm">userController</prop>
+                <prop key="vnPayPayment.htm">orderController</prop>
+                <prop key="checkNewOrders.htm">orderController</prop>
+                <prop key="loginOrderTracking.htm">userController</prop>
+                <prop key="login_order.htm">userController</prop>
+                <prop key="addadmin.htm">admin1Controller</prop>
+                <prop key="formadmin.htm">admin1Controller</prop>
+                <prop key="admindelete.htm">admin1Controller</prop>
+                <prop key="adminupdateshow.htm">admin1Controller</prop>
+                <prop key="updateAdmin.htm">admin1Controller</prop>
+                
+            </props>
+            
+        </property>
+    </bean>
+  
+    <bean id="userViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+
+    </bean>
+
+
+    <bean name="aboutController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="about" />
+    <bean name="blogController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="blog" />
+    <bean name="contactController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="contact" />
+    <bean name="forgotController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="forgot" />
+    <bean name="loginController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="login" />
+    <bean name="registerController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="register" />
+    
+      
+</beans>
